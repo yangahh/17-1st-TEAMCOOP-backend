@@ -10,7 +10,7 @@ import requests
 
 from random       import randint
 
-from django.http  import JsonResponse, HttpResponse
+from django.http  import JsonResponse 
 from django.views import View
 from django.utils import timezone
 
@@ -84,7 +84,7 @@ class SmsSendView(View):
             access_key     = SMS['access_key']
             string_to_sign = "POST " + uri + "\n" + timestamp + "\n" + access_key
             signature      = self.make_signature(string=string_to_sign)
-            auth_number    = randint(1000,10000)
+            auth_number    = randint(1000, 10000)
             headers        = { 
                 "Content-Type"            : "application/json",
                 "x-ncp-apigw-timestamp"	  : timestamp,
